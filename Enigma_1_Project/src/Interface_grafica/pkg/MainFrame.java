@@ -22,6 +22,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JEntrada = new javax.swing.JTextArea();
+        Confirmar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JSaida = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         CBX_R1 = new javax.swing.JComboBox<>();
         CBX_R2 = new javax.swing.JComboBox<>();
@@ -55,12 +61,6 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        JEntrada = new javax.swing.JTextArea();
-        Confirmar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        JSaida = new javax.swing.JTextArea();
 
         jButton4.setText("jButton4");
 
@@ -79,6 +79,65 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(855, 530));
 
         jTabbedPane1.setBackground(new java.awt.Color(102, 0, 0));
+
+        jPanel3.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+
+        JEntrada.setFont(new java.awt.Font("Arial", 2, 24)); // NOI18N
+        JEntrada.setForeground(new java.awt.Color(102, 102, 102));
+        JEntrada.setLineWrap(true);
+        JEntrada.setText("Insira aqui sua mensagem ...");
+        JEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        JEntrada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JEntradaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(JEntrada);
+
+        Confirmar.setBackground(new java.awt.Color(255, 0, 0));
+        Confirmar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Confirmar.setForeground(new java.awt.Color(255, 255, 255));
+        Confirmar.setText("Confirmar");
+        Confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmarActionPerformed(evt);
+            }
+        });
+
+        JSaida.setEditable(false);
+        JSaida.setColumns(20);
+        JSaida.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        JSaida.setLineWrap(true);
+        JSaida.setRows(5);
+        JSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jScrollPane2.setViewportView(JSaida);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(Confirmar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Cifragem", jPanel3);
 
         jPanel2.setBackground(new java.awt.Color(153, 0, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -402,64 +461,6 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Configuração", jPanel2);
-
-        jPanel3.setBackground(new java.awt.Color(153, 0, 0));
-
-        JEntrada.setFont(new java.awt.Font("Arial", 2, 24)); // NOI18N
-        JEntrada.setForeground(new java.awt.Color(102, 102, 102));
-        JEntrada.setLineWrap(true);
-        JEntrada.setText("Insira aqui sua mensagem ...");
-        JEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        JEntrada.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JEntradaMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(JEntrada);
-
-        Confirmar.setBackground(new java.awt.Color(255, 0, 0));
-        Confirmar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        Confirmar.setForeground(new java.awt.Color(255, 255, 255));
-        Confirmar.setText("Confirmar");
-        Confirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmarActionPerformed(evt);
-            }
-        });
-
-        JSaida.setEditable(false);
-        JSaida.setColumns(20);
-        JSaida.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        JSaida.setLineWrap(true);
-        JSaida.setRows(5);
-        JSaida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jScrollPane2.setViewportView(JSaida);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(Confirmar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Cifragem", jPanel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
