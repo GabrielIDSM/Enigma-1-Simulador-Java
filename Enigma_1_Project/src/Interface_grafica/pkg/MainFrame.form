@@ -12,7 +12,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Enigma 1 V1.2.4"/>
+    <Property name="title" type="java.lang.String" value="Enigma 1"/>
     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
       <Font name="Arial" size="14" style="0"/>
     </Property>

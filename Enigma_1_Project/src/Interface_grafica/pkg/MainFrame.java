@@ -59,7 +59,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton4.setText("jButton4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Enigma 1 V1.2.4");
+        setTitle("Enigma 1");
         setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
