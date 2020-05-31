@@ -10,9 +10,23 @@ import java.util.*;
 import javax.swing.*;
 //FIM
 public class MainFrame extends javax.swing.JFrame {
+    //Atributos
+    String U1, U2, U3; //--> Rotores que serão usados
+        int aux_R1;
+        int aux_R2;
+        int aux_R3;
+        int aux_CH1;
+        int aux_CH2;
+        int aux_CH3;
+        String mensagem;
+        int [] parapar_vetor = new int[12];
     public MainFrame() {
         initComponents();
         setLocationRelativeTo(null);
+        jButtonAlterar.setEnabled(false);
+        Confirmar.setEnabled(false);
+        JEntrada.setEnabled(false);
+        JSaida.setEnabled(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -26,7 +40,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jPainelAltConf = new javax.swing.JPanel();
         jButtonAlterar = new javax.swing.JButton();
-        jButtonAlterar1 = new javax.swing.JButton();
+        jButtonConfig = new javax.swing.JButton();
         jPanelConfig = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -88,7 +102,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255), 5));
 
-        jPainelTitulo1.setBackground(new java.awt.Color(224, 224, 255));
+        jPainelTitulo1.setBackground(new java.awt.Color(255, 255, 255));
         jPainelTitulo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255)));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -107,7 +121,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        jPainelTitulo2.setBackground(new java.awt.Color(224, 224, 255));
+        jPainelTitulo2.setBackground(new java.awt.Color(255, 255, 255));
         jPainelTitulo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255)));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -128,18 +142,28 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        jPainelAltConf.setBackground(new java.awt.Color(224, 224, 255));
+        jPainelAltConf.setBackground(new java.awt.Color(255, 255, 255));
         jPainelAltConf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255)));
 
         jButtonAlterar.setBackground(new java.awt.Color(153, 153, 255));
         jButtonAlterar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButtonAlterar.setForeground(new java.awt.Color(0, 0, 50));
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
-        jButtonAlterar1.setBackground(new java.awt.Color(153, 255, 153));
-        jButtonAlterar1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButtonAlterar1.setForeground(new java.awt.Color(0, 0, 50));
-        jButtonAlterar1.setText("Confirmar");
+        jButtonConfig.setBackground(new java.awt.Color(153, 255, 153));
+        jButtonConfig.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonConfig.setForeground(new java.awt.Color(0, 0, 50));
+        jButtonConfig.setText("Confirmar");
+        jButtonConfig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfigActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPainelAltConfLayout = new javax.swing.GroupLayout(jPainelAltConf);
         jPainelAltConf.setLayout(jPainelAltConfLayout);
@@ -149,7 +173,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPainelAltConfLayout.setVerticalGroup(
@@ -157,12 +181,12 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPainelAltConfLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPainelAltConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonAlterar1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(jButtonConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                     .addComponent(jButtonAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jPanelConfig.setBackground(new java.awt.Color(224, 224, 255));
+        jPanelConfig.setBackground(new java.awt.Color(255, 255, 255));
         jPanelConfig.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255)));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255)));
@@ -176,11 +200,6 @@ public class MainFrame extends javax.swing.JFrame {
         CBX_R1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         CBX_R1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4", "Modelo 5" }));
         CBX_R1.setSelectedIndex(0);
-        CBX_R1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CBX_R1ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 50));
@@ -327,6 +346,11 @@ public class MainFrame extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("?");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         C1_0.setBackground(new java.awt.Color(255, 255, 204));
         C1_0.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -428,7 +452,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
-                        .addGap(0, 2, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(C3_0, javax.swing.GroupLayout.Alignment.LEADING, 0, 70, Short.MAX_VALUE)
@@ -533,7 +557,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelMens.setBackground(new java.awt.Color(224, 224, 255));
+        jPanelMens.setBackground(new java.awt.Color(255, 255, 255));
         jPanelMens.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255)));
 
         jScrollPane1.setBorder(null);
@@ -594,7 +618,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
 
@@ -649,17 +673,15 @@ public class MainFrame extends javax.swing.JFrame {
         JSaida.setText("");
         JSaida.setLineWrap(true);
     //Criando Variáveis IN
-        String U1, U2, U3; //--> Rotores que serão usados
-        int aux_R1 = CBX_R1.getSelectedIndex(); aux_R1++;
-        int aux_R2 = CBX_R2.getSelectedIndex(); aux_R2++;
-        int aux_R3 = CBX_R3.getSelectedIndex(); aux_R3++;
-        int aux_CH1 = CBX_CH1.getSelectedIndex();
-        int aux_CH2 = CBX_CH2.getSelectedIndex();
-        int aux_CH3 = CBX_CH3.getSelectedIndex();
-        String mensagem = JEntrada.getText();
+        aux_R1 = CBX_R1.getSelectedIndex(); aux_R1++;
+        aux_R2 = CBX_R2.getSelectedIndex(); aux_R2++;
+        aux_R3 = CBX_R3.getSelectedIndex(); aux_R3++;
+        aux_CH1 = CBX_CH1.getSelectedIndex();
+        aux_CH2 = CBX_CH2.getSelectedIndex();
+        aux_CH3 = CBX_CH3.getSelectedIndex();
+        mensagem = JEntrada.getText();
     //FIM
     //Criando variáveis para trocas par a par IN
-        int [] parapar_vetor = new int[12];
         parapar_vetor [0] = C1_0.getSelectedIndex();
         parapar_vetor [1] = C1_1.getSelectedIndex();
         parapar_vetor [2] = C2_0.getSelectedIndex();
@@ -780,7 +802,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void Aviso(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Aviso
         // TODO add your handling code here:
-        String Inst = "Bem-vindo ao simulador da máquina Enigma 1\n";
+        String Inst = "Bem-vindo!\n";
         Inst += "\nConfigure o rotor e suas respectivas chaves, com algumas restrições: \n";
         Inst += "\n- Os rotores não podem ser iguais;";
         Inst += "\n- Cada letra só poderá ser escolhida uma vez em trocas individuais.";
@@ -795,9 +817,153 @@ public class MainFrame extends javax.swing.JFrame {
         JEntrada.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_JEntradaMouseClicked
 
-    private void CBX_R1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBX_R1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CBX_R1ActionPerformed
+    private void jButtonConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfigActionPerformed
+        //Criando Variáveis IN
+        aux_R1 = CBX_R1.getSelectedIndex();
+        aux_R1++;
+        aux_R2 = CBX_R2.getSelectedIndex();
+        aux_R2++;
+        aux_R3 = CBX_R3.getSelectedIndex();
+        aux_R3++;
+        aux_CH1 = CBX_CH1.getSelectedIndex();
+        aux_CH2 = CBX_CH2.getSelectedIndex();
+        aux_CH3 = CBX_CH3.getSelectedIndex();
+        mensagem = JEntrada.getText();
+        //FIM
+        //Criando variáveis para trocas par a par IN
+        parapar_vetor[0] = C1_0.getSelectedIndex();
+        parapar_vetor[1] = C1_1.getSelectedIndex();
+        parapar_vetor[2] = C2_0.getSelectedIndex();
+        parapar_vetor[3] = C2_1.getSelectedIndex();
+        parapar_vetor[4] = C3_0.getSelectedIndex();
+        parapar_vetor[5] = C3_1.getSelectedIndex();
+        parapar_vetor[6] = C4_0.getSelectedIndex();
+        parapar_vetor[7] = C4_1.getSelectedIndex();
+        parapar_vetor[8] = C5_0.getSelectedIndex();
+        parapar_vetor[9] = C5_1.getSelectedIndex();
+        parapar_vetor[10] = C6_0.getSelectedIndex();
+        parapar_vetor[11] = C6_1.getSelectedIndex();
+        //FIM
+        //Instanciando o objeto rotores IN
+        Classe_Rotores Rotores = new Classe_Rotores();
+        String U0 = Rotores.define_rotor_usado(0); // U0 = R0 --> Padrão 
+        char[][] Ref_b = Rotores.define_refletor();
+        //FIM
+        //Instanciando o objeto Prepara IN
+        Prepara_Rotores Prepara = new Prepara_Rotores();
+        //FIM
+        //Instanciando o objeto Prepara_mensagem IN
+        Prepara_Mensagem Pre_Men = new Prepara_Mensagem();
+        //FIM
+//Input imaginário dos rotores a serem usados IN          
+        U1 = Rotores.define_rotor_usado(aux_R1); // U1 = R1
+        U2 = Rotores.define_rotor_usado(aux_R2); // U2 = R2
+        U3 = Rotores.define_rotor_usado(aux_R3); // U3 = R3
+//FIM
+//Input imaginário das chaves a serem utilizadas IN
+        U1 = Prepara.Prepararotor(U1, aux_CH1);
+        U2 = Prepara.Prepararotor(U2, aux_CH2);
+        U3 = Prepara.Prepararotor(U3, aux_CH3);
+//FIM
+//Preparar String IN
+        mensagem = mensagem.replace("\n", "");
+        mensagem = mensagem.replace("\t", "");
+        mensagem = mensagem.replace("\r", "");
+        mensagem = Pre_Men.Preparamensagem(mensagem);
+//FIM
+//Critica de dados IN
+        boolean validade = true;
+        //Caso haja um caracter invalido na mensagem
+        if (mensagem == null) {
+            validade = false;
+            JOptionPane.showMessageDialog(rootPane, "Há caracteres inválidos na mensagem", "Mensagem inválida", JOptionPane.ERROR_MESSAGE);
+        }
+        //Caso haja o uso dos mesmos rotores
+        if (aux_R1 == aux_R2 || aux_R2 == aux_R3 || aux_R1 == aux_R3) {
+            validade = false;
+            JOptionPane.showMessageDialog(rootPane, "Há 1 ou mais rotores iguais", "Rotores inválidos", JOptionPane.ERROR_MESSAGE);
+        }
+        //Caso haja letras repetidas na trocas parapar
+        boolean aux_validade = true;
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 12; j++) {
+                if (i == j) {
+                    continue;
+                } else {
+                    if (parapar_vetor[i] == parapar_vetor[j]) {
+                        aux_validade = false;
+                        //JOptionPane.showMessageDialog(rootPane, "Há uma letra igual a outra", "Troca par a par inválida", JOptionPane.ERROR_MESSAGE);
+                        break;
+                    }
+                }
+            }
+        }
+        if (!aux_validade) {
+            validade = false;
+            JOptionPane.showMessageDialog(rootPane, "Há letras iguais", "Troca par a par inválida", JOptionPane.ERROR_MESSAGE);
+        }
+//FIM
+        if (validade) {
+            jButtonAlterar.setEnabled(true);
+            Confirmar.setEnabled(true);
+            JEntrada.setEnabled(true);
+            JSaida.setEnabled(true);
+            jButtonConfig.setEnabled(false);
+            CBX_R1.setEnabled(false);
+            CBX_R2.setEnabled(false);
+            CBX_R3.setEnabled(false);
+            CBX_CH1.setEnabled(false);
+            CBX_CH2.setEnabled(false);
+            CBX_CH3.setEnabled(false);
+            C1_0.setEnabled(false);
+            C1_1.setEnabled(false);
+            C2_0.setEnabled(false);
+            C2_1.setEnabled(false);
+            C3_0.setEnabled(false);
+            C3_1.setEnabled(false);
+            C4_0.setEnabled(false);
+            C4_1.setEnabled(false);
+            C5_0.setEnabled(false);
+            C5_1.setEnabled(false);
+            C6_0.setEnabled(false);
+            C6_1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButtonConfigActionPerformed
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        jButtonAlterar.setEnabled(false);
+        Confirmar.setEnabled(false);
+        JEntrada.setEnabled(false);
+        JSaida.setEnabled(false);
+        jButtonConfig.setEnabled(true);
+        CBX_R1.setEnabled(true);
+        CBX_R2.setEnabled(true);
+        CBX_R3.setEnabled(true);
+        CBX_CH1.setEnabled(true);
+        CBX_CH2.setEnabled(true);
+        CBX_CH3.setEnabled(true);
+        C1_0.setEnabled(true);
+        C1_1.setEnabled(true);
+        C2_0.setEnabled(true);
+        C2_1.setEnabled(true);
+        C3_0.setEnabled(true);
+        C3_1.setEnabled(true);
+        C4_0.setEnabled(true);
+        C4_1.setEnabled(true);
+        C5_0.setEnabled(true);
+        C5_1.setEnabled(true);
+        C6_0.setEnabled(true);
+        C6_1.setEnabled(true);
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String Inst = "Trocas Par a Par\n";
+        Inst += "\nO sistema de trocas par a par permite trocar de maneira arbitrária\n"
+                + "duas letras durante a criptografia, independente da disposição dos rotores\n"
+                + "e das chaves selecionadas.";
+        
+        JOptionPane.showMessageDialog(rootPane, Inst, "Ajuda", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -859,7 +1025,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAlterar;
-    private javax.swing.JButton jButtonAlterar1;
+    private javax.swing.JButton jButtonConfig;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -889,39 +1055,3 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
-/*
-//Troca par a par IN
-            char[] aux_parapar = Rotores.define_rotor_usado(0).toCharArray();
-            char[] aux_mensagem_1 = mensagem.toCharArray();
-            String mensagem_1 = "";
-            boolean b = true;
-            for(int i=0; i<aux_mensagem_1.length; i++){
-                for(int j=0; j<12; j+=2){
-                    if(aux_parapar[parapar_vetor[j]] == aux_mensagem_1[i]){
-                        mensagem_1 += aux_parapar[parapar_vetor[(j+1)]];
-                        b = false;
-                    }else if(aux_parapar[parapar_vetor[(j+1)]] == aux_mensagem_final[i]){
-                        mensagem_final_final += aux_parapar[parapar_vetor[j]];
-                        b = false;
-                    }
-                }
-                if(b) mensagem_1 += aux_mensagem_1[i];
-                b = true;
-            }
-            b = true;
-    //FIM
-//Troca par a par IN
-            char[] aux_mensagem_final = mensagem_final.toCharArray();
-            String mensagem_final_final = "";
-            for(int i=0; i<aux_mensagem_final.length; i++){
-                for(int j=0; j<12; j+=2){
-                    if(aux_parapar[parapar_vetor[(j+1)]] == aux_mensagem_final[i]){
-                        mensagem_final_final += aux_parapar[parapar_vetor[j]];
-                        b = false;
-                    }
-                }
-                if(b) mensagem_final_final += aux_mensagem_final[i];
-                b = true;
-            }
-    //FIM
-*/
