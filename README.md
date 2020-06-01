@@ -14,9 +14,13 @@ Esse algoritmo consegue fazer a mesma criptografia de uma Máquina Enigma 1 de 3
 
 Para usar a máquina é primeiro necessário configurar os **rotores**, escolher as **chaves iniciais** e definir quais letras serão trocadas nas **trocas par a par**.
 
+![Configuração](https://github.com/GabrielIDSM/Maquina-de-Criptografia/blob/master/Imagens/Enigma_SS1.png)
+
 ### Criptografia / Descriptografia
 
 Para descriptografar uma mensagem criptografada na máquina basta configura-lá para as **mesmas configurações da mensagem criptografada**. Isso é possível pois a cifragem é simétrica e feita letra a letra.
+
+![CripDescrip](https://github.com/GabrielIDSM/Maquina-de-Criptografia/blob/master/Imagens/Enigma.gif)
 
 ## Colaboradores e contato
 O Projeto é pessoal, feito por Gabriel Inácio ([Github](https://github.com/GabrielIDSM)/[LinkedIn](https://www.linkedin.com/in/gabriel-inacio-uff/)).
